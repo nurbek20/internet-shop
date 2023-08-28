@@ -4,13 +4,12 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header = () => {
   return (
-    <Navbar sticky="top"  expand="lg"  bg='dark'  >
+    <Navbar sticky="top" variant='dark'  expand="lg"  bg='dark'  >
     <Container>
-      <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+      <Navbar.Brand  >Navbar scroll</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -18,9 +17,9 @@ const Header = () => {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link >Home</Nav.Link>
+          <Nav.Link>Home</Nav.Link>
           <Nav.Link>
-            Link
+            Cart
           </Nav.Link>
         </Nav>
         <Form className="d-flex">
