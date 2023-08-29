@@ -19,3 +19,7 @@
 .description::-webkit-scrollbar{
     width: 0;
 }
+
+li {
+    cursor: pointer;
+}
