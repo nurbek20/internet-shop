@@ -1,4 +1,4 @@
-import {GET_CATEGORY} from "./Types"
+import {GET_CATEGORY,GET_ALL_PRODUCT} from "./Types"
 import { MyContext } from "./My-context"
 import { useReducer } from "react"
 import { ProductReducer } from "./Product-reducer"
@@ -6,18 +6,25 @@ import { ProductReducer } from "./Product-reducer"
 
 export const ProductState=({children})=>{
     const initialSate={
-        categories:[]
+        categories:[],
+        products:[]
     }
     const [state,dispatch]=useReducer(ProductReducer,initialSate)
     const getCategoryState=(data)=>{
         console.log("data>>>", data)
         dispatch({type:GET_CATEGORY, payload:data})
     }
+    const getAllProduct=(data)=>{
+        console.log("data>>>", data)
+        dispatch({type:GET_ALL_PRODUCT, payload:data})
+    }
 
     return (
         <MyContext.Provider value={{
             categories:state.categories,
-            getCategoryState
+            products:state.products,
+            getCategoryState,
+            getAllProduct
         }} >
             {children}
         </MyContext.Provider>

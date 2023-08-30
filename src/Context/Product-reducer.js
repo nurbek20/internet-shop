@@ -1,4 +1,4 @@
-import { GET_CATEGORY } from "./Types";
+import { GET_CATEGORY,GET_ALL_PRODUCT } from "./Types";
 
 export const ProductReducer=(state, action)=>{
     switch(action.type){
@@ -6,6 +6,12 @@ export const ProductReducer=(state, action)=>{
             return {
                 ...state,
                 categories:action.payload
+            }
+        }
+        case GET_ALL_PRODUCT:{
+            return{
+                ...state,
+                products:action.payload
             }
         }
         default:

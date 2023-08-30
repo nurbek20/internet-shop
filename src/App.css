@@ -1,6 +1,8 @@
 
 .nav-menu,.main {
     border: 2px solid #ededed;
+}
+.main {
     padding: 10px;
 }
 
@@ -11,6 +13,9 @@
     height: 250px;
     margin: 10px;
 }
+.title {
+    height: 60px;
+}
 .description {
     overflow: scroll;
     width: 100%;
@@ -19,7 +24,10 @@
 .description::-webkit-scrollbar{
     width: 0;
 }
-
+.link{
+    color: #fff;
+    text-decoration: none;
+}
 li {
     cursor: pointer;
 }

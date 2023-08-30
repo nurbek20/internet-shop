@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -17,9 +18,9 @@ const Header = () => {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link><Link className='link' to='/'>Home</Link></Nav.Link>
           <Nav.Link>
-            Cart
+            <Link className='link' to='cart'>Cart</Link>
           </Nav.Link>
         </Nav>
         <Form className="d-flex">

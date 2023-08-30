@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="app">
       <Header/>
-        <div className='container d-flex mt-2 justify-content-around'>
-          <div className='col-3 nav-menu'>
+        <div className='container d-flex mt-2 justify-content-between'>
+          <div className='col-2 nav-menu'>
             <Nav/>
           </div>
-          <div className='col-8 main'>
+          <div className='col-9 main'>
             <Main/>
           </div>
         </div>

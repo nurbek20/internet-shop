@@ -8,6 +8,12 @@ const getCategories=()=>{
     return axios.get('/products/categories')
 }
 
+//? Продукты
+const allPorducts=()=>{
+    return axios.get("/products")
+}
+
 export const services={
     getCategories,
+    allPorducts
 }
