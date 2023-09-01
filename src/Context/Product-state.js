@@ -1,4 +1,4 @@
-import {GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD} from "./Types"
+import {GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD} from "./Types"
 import { MyContext } from "./My-context"
 import { useReducer } from "react"
 import { ProductReducer } from "./Product-reducer"
@@ -18,7 +18,7 @@ export const ProductState=({children})=>{
         dispatch({type:GET_ALL_PRODUCT, payload:data})
     }
     const addToCard=(id)=>dispatch({type:ADD_TOCARD, id})
-
+    const deleteToCard=(id)=>dispatch({type:DELETE_TO_CARD, id})
     return (
         <MyContext.Provider value={{
             categories:state.categories,
@@ -26,7 +26,8 @@ export const ProductState=({children})=>{
             cart:state.cart,
             getCategoryState,
             getAllProduct,
-            addToCard
+            addToCard,
+            deleteToCard
         }} >
             {children}
         </MyContext.Provider>

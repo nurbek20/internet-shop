@@ -9,7 +9,7 @@
 
 /* ? cartitem */
 .img {
-    width: 265px;
+    width: 265px !important;
     height: 250px;
     margin: 10px;
 }

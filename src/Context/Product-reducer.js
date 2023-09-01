@@ -1,4 +1,4 @@
-import { GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD } from "./Types";
+import { GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD } from "./Types";
 
 export const ProductReducer=(state, action)=>{
     switch(action.type){
@@ -19,6 +19,15 @@ export const ProductReducer=(state, action)=>{
             const {cart,products}=state
             const element=products.find((elem)=>elem.id===id)
             const newArr=[...cart,element]
+            return {
+                ...state,
+                cart:newArr
+            }
+        }
+        case DELETE_TO_CARD:{
+            const {id}=action
+            const {cart}=state
+            const newArr=cart.filter((elem,i)=>i!==id)
             return {
                 ...state,
                 cart:newArr
