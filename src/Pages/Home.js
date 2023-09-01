@@ -4,7 +4,7 @@ import { services } from '../Services/Services'
 import { MyContext } from '../Context/My-context'
 
 const Home = () => {
-  const {getAllProduct,products}=useContext(MyContext)
+  const {getAllProduct,products,addToCard}=useContext(MyContext)
   useEffect(()=>{
     const data=async()=>{
       const product=await services.allPorducts()
@@ -12,12 +12,11 @@ const Home = () => {
     }
     data()
   },[])
-  console.log("product>>>",products)
   return (
     <div className='d-flex flex-wrap justify-content-between gap-4 mt-4'>
       {
         products.map((product,index)=>{
-          return  <CartItem key={index} {...product} />
+          return  <CartItem children='Add to Cart' onClick={()=>addToCard(product.id)} key={index} {...product} />
         })
       }
      

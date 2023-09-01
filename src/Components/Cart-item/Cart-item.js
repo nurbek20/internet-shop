@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 const CartItem = (props) => {
-  const {brand,description,images,price,title}=props
+  const {brand,description,images,price,title,onClick, children}=props
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img
@@ -22,7 +22,7 @@ const CartItem = (props) => {
         </div>
         <div className="d-flex gap-2 justify-content-between">
           <Card.Title>{price} $</Card.Title>
-          <Button variant="primary">Add to Cart</Button>
+          <Button onClick={onClick} variant="primary">{children}</Button>
         </div>
       </Card.Body>
     </Card>
