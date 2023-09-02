@@ -1,12 +1,19 @@
-import React from 'react'
+import React,{useState,useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { MyContext } from '../../Context/My-context';
 
 const Header = () => {
+  const {searchClick}=useContext(MyContext)
+  const [input,setInput]=useState('')
+  const formClick=()=>{
+    console.log("input", input)
+    searchClick(input)
+  }
   return (
     <Navbar sticky="top" variant='dark'  expand="lg"  bg='dark'  >
     <Container>
@@ -29,8 +36,10 @@ const Header = () => {
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            value={input}
+            onChange={(e)=>setInput(e.target.value)}
           />
-          <Button variant="outline-success">Search</Button>
+          <Button onClick={formClick} variant="outline-success">Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>
