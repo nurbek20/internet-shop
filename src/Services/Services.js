@@ -12,8 +12,13 @@ const getCategories=()=>{
 const allPorducts=()=>{
     return axios.get("/products")
 }
+const getCategoryProduct=(product)=>{
+    console.log("category>>", product)
+    return axios.get(`/products/category/${product}`)
+}
 
 export const services={
     getCategories,
-    allPorducts
+    allPorducts,
+    getCategoryProduct
 }

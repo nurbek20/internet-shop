@@ -36,7 +36,9 @@ export const ProductReducer=(state, action)=>{
         case SEARCH_DATA:{
             const {text}=action
             const {products}=state
-            const newArr=products.filter((elem)=>elem.title===text)
+            const newArr=products.filter((elem)=>{
+                return elem.title.toLowerCase().indexOf(text.toLowerCase())>-1
+            })
             return{
                 ...state,
                 products:newArr
