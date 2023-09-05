@@ -1,4 +1,4 @@
-import { GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD,SEARCH_DATA } from "./Types";
+import { GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD,SEARCH_DATA,PRODUCTS_DATA } from "./Types";
 
 export const ProductReducer=(state, action)=>{
     switch(action.type){
@@ -42,6 +42,12 @@ export const ProductReducer=(state, action)=>{
             return{
                 ...state,
                 products:newArr
+            }
+        }
+        case PRODUCTS_DATA:{
+            return {
+                ...state,
+                data:action.payload
             }
         }
         default:

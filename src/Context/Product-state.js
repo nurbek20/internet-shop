@@ -1,4 +1,4 @@
-import {GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD,SEARCH_DATA} from "./Types"
+import {GET_CATEGORY,GET_ALL_PRODUCT,ADD_TOCARD,DELETE_TO_CARD,SEARCH_DATA,PRODUCTS_DATA} from "./Types"
 import { MyContext } from "./My-context"
 import { useReducer } from "react"
 import { ProductReducer } from "./Product-reducer"
@@ -8,7 +8,8 @@ export const ProductState=({children})=>{
     const initialSate={
         categories:[],
         products:[],
-        cart:[]
+        cart:[],
+        data:[]
     }
     const [state,dispatch]=useReducer(ProductReducer,initialSate)
     const getCategoryState=(data)=>{
@@ -20,16 +21,19 @@ export const ProductState=({children})=>{
     const addToCard=(id)=>dispatch({type:ADD_TOCARD, id})
     const deleteToCard=(id)=>dispatch({type:DELETE_TO_CARD, id})
     const searchClick=(text)=>dispatch({type:SEARCH_DATA,text})
+    const categoryProduct=(data)=>dispatch({type:PRODUCTS_DATA, payload:data})
     return (
         <MyContext.Provider value={{
             categories:state.categories,
             products:state.products,
             cart:state.cart,
+            data:state.data,
             getCategoryState,
             getAllProduct,
             addToCard,
             deleteToCard,
-            searchClick
+            searchClick,
+            categoryProduct
         }} >
             {children}
         </MyContext.Provider>
